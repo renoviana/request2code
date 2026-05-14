@@ -1,0 +1,7 @@
+{
+  "manifest_version": 3,
+  "name": "request2code",
+  "description": "Captures network requests and converts them to executable code snippets",
+  "version": "1.0.2",
+  "devtools_page": "devtools.html"
+}
