@@ -9,7 +9,8 @@ Extensión de navegador para DevTools que captura solicitudes de red y las convi
 **Firefox** — Mozilla Add-ons Store:
 [addons.mozilla.org/pt-BR/firefox/addon/request2code/](https://addons.mozilla.org/pt-BR/firefox/addon/request2code/)
 
-**Chrome** — próximamente en la Chrome Web Store. Por ahora, cárgala manualmente (ver abajo).
+**Chrome** — 
+[https://chromewebstore.google.com/detail/request2code/ipkmkckodchgcmchaanbfpjfcniabgek](https://chromewebstore.google.com/detail/request2code/ipkmkckodchgcmchaanbfpjfcniabgek)
 
 ## Funcionalidades
 
