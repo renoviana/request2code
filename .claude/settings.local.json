@@ -4,7 +4,12 @@
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\renov\\\\Desktop\\\\request2python\" -Recurse -File)",
       "Bash(Select-Object FullName)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:api.github.com)"
+      "WebFetch(domain:api.github.com)",
+      "Bash(git -C \"C:\\\\Users\\\\renov\\\\Desktop\\\\assistant_project\\\\request2python\" add README.md agent.md docs/)",
+      "Bash(git -C 'C:\\\\Users\\\\renov\\\\Desktop\\\\assistant_project\\\\request2python' commit -m 'docs: atualiza docs para suporte multi-browser \\(Firefox + Chrome\\) *)",
+      "Bash(git -C \"C:\\\\Users\\\\renov\\\\Desktop\\\\assistant_project\\\\request2python\" push)",
+      "Bash(Get-ChildItem -Recurse)",
+      "Bash(Select-Object -Property FullName)"
     ]
   }
 }

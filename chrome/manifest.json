@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "request2code",
-  "description": "Captures network requests and converts them to executable code snippets",
-  "version": "1.0.2",
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
+  "default_locale": "pt",
+  "version": "1.0.3",
   "devtools_page": "devtools.html"
 }
