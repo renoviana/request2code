@@ -1,37 +1,39 @@
+🌐 English | [Português](README.pt-BR.md) | [Español](README.es.md)
+
 # request2code
 
-Extensão de navegador para DevTools que captura requisições de rede e as converte em snippets de código prontos para executar. Disponível para Firefox e Chrome.
+A browser DevTools extension that captures network requests and converts them into ready-to-run code snippets. Available for Firefox and Chrome.
 
-## Instalar
+## Install
 
 **Firefox** — Mozilla Add-ons Store:
 [addons.mozilla.org/pt-BR/firefox/addon/request2code/](https://addons.mozilla.org/pt-BR/firefox/addon/request2code/)
 
-**Chrome** — em breve na Chrome Web Store. Por enquanto, carregue manualmente (veja abaixo).
+**Chrome** — coming soon to the Chrome Web Store. For now, load it manually (see below).
 
-## Funcionalidades
+## Features
 
-- Captura todas as requisições HTTP enquanto o DevTools está aberto
-- Converte cada requisição em código executável para 5 linguagens:
-  - **Python** — biblioteca `requests`
-  - **JavaScript** — `fetch` com `async/await`
-  - **cURL** — comando de linha
-  - **PHP** — funções `curl_*`
-  - **Go** — pacote `net/http`
-- Trata corretamente todos os tipos de corpo: JSON, form-urlencoded, multipart/form-data, raw
-- Separa cookies do header `Cookie` em parâmetro dedicado (Python) ou flag `-b` (cURL)
-- Syntax highlighting para todas as linguagens
-- Visualização da resposta em três modos: Formatado, Árvore interativa (JSON), Raw
-- Filtro por URL e por tipo de recurso (XHR/Fetch, JS, CSS, Img, Doc, Other)
-- Resize drag entre os painéis
-- Preserve log (mantém requisições ao navegar para outra página)
-- Interface em português, inglês e espanhol
+- Captures all HTTP requests while DevTools is open
+- Converts each request into executable code in 5 languages:
+  - **Python** — `requests` library
+  - **JavaScript** — `fetch` with `async/await`
+  - **cURL** — command line
+  - **PHP** — `curl_*` functions
+  - **Go** — `net/http` package
+- Correctly handles all body types: JSON, form-urlencoded, multipart/form-data, raw
+- Extracts cookies from the `Cookie` header into a dedicated parameter (Python) or `-b` flag (cURL)
+- Syntax highlighting for all languages
+- Response viewer in three modes: Formatted, Interactive tree (JSON), Raw
+- Filter by URL and resource type (XHR/Fetch, JS, CSS, Img, Doc, Other)
+- Drag-to-resize between panels
+- Preserve log (keeps requests when navigating to another page)
+- UI available in Portuguese, English, and Spanish
 
-## Estrutura do repositório
+## Repository structure
 
 ```
 request2code/
-├── firefox/             # Extensão para Firefox (MV2, browser.* API)
+├── firefox/             # Firefox extension (MV2, browser.* API)
 │   ├── manifest.json
 │   ├── devtools.html
 │   ├── devtools.js
@@ -41,7 +43,7 @@ request2code/
 │   │   └── converters.js
 │   ├── _locales/
 │   └── test/
-├── chrome/              # Extensão para Chrome (MV3, chrome.* API)
+├── chrome/              # Chrome extension (MV3, chrome.* API)
 │   ├── manifest.json
 │   ├── devtools.html
 │   ├── devtools.js
@@ -54,55 +56,55 @@ request2code/
     └── adding-converters.md
 ```
 
-Cada pasta é self-contained e pode ser empacotada independentemente para submissão às lojas.
+Each folder is self-contained and can be packaged independently for store submission.
 
-## Desenvolvimento
+## Development
 
-Sem build step, sem bundler, sem dependências de runtime. O código carrega diretamente no navegador.
+No build step, no bundler, no runtime dependencies. The code loads directly in the browser.
 
-### Carregar no Firefox (temporário)
-
-```
-about:debugging → This Firefox → Load Temporary Add-on → selecionar firefox/manifest.json
-```
-
-### Carregar no Chrome (temporário)
+### Load in Firefox (temporary)
 
 ```
-chrome://extensions → ativar "Modo desenvolvedor" → "Carregar sem compactação" → selecionar a pasta chrome/
+about:debugging → This Firefox → Load Temporary Add-on → select firefox/manifest.json
 ```
 
-### Recarregar após mudanças
+### Load in Chrome (temporary)
 
-| Arquivo alterado | O que fazer |
+```
+chrome://extensions → enable "Developer mode" → "Load unpacked" → select the chrome/ folder
+```
+
+### Reload after changes
+
+| Modified file | What to do |
 |---|---|
-| `panel.js` / `panel.html` | Fechar e reabrir o painel DevTools |
-| `manifest.json` / `devtools.js` | Firefox: recarregar em `about:debugging` / Chrome: botão reload em `chrome://extensions` |
+| `panel.js` / `panel.html` | Close and reopen the DevTools panel |
+| `manifest.json` / `devtools.js` | Firefox: reload in `about:debugging` / Chrome: reload button in `chrome://extensions` |
 
-### Testes
+### Tests
 
-Os testes cobrem `lib/converters.js` — funções puras sem dependência de browser API.
+Tests cover `lib/converters.js` — pure functions with no browser API dependency.
 
 ```bash
 npm test
 ```
 
-Usa Jest. Os arquivos de teste ficam em `firefox/test/` e importam `firefox/lib/converters.js`.
+Uses Jest. Test files are in `firefox/test/` and import `firefox/lib/converters.js`.
 
-### Sincronizar mudanças entre versões
+### Syncing changes between versions
 
-`lib/converters.js` é duplicado em `firefox/lib/` e `chrome/lib/`. Qualquer mudança nos conversores ou no i18n precisa ser aplicada nos dois arquivos.
+`lib/converters.js` is duplicated in `firefox/lib/` and `chrome/lib/`. Any changes to converters or i18n must be applied to both files.
 
-A única diferença entre as versões está em:
-- `manifest.json` — versão de manifest, browser-specific settings
+The only differences between versions are:
+- `manifest.json` — manifest version, browser-specific settings
 - `devtools.js` — `browser.*` (Firefox) vs `chrome.*` (Chrome)
 - `panel.js` — `browser.devtools.network.*` (Firefox) vs `chrome.devtools.network.*` (Chrome)
 
-### Adicionar uma nova linguagem
+### Adding a new output language
 
-Veja [docs/adding-converters.md](docs/adding-converters.md).
+See [docs/adding-converters.md](docs/adding-converters.md).
 
-### Publicar
+### Publishing
 
 **Firefox (AMO):**
 ```bash
@@ -112,4 +114,4 @@ npx web-ext build
 ```
 
 **Chrome (CWS):**
-Compacte a pasta `chrome/` como `.zip` e envie pelo Chrome Developer Dashboard.
+Zip the `chrome/` folder and upload it via the Chrome Developer Dashboard.

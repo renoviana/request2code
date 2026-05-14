@@ -9,7 +9,16 @@
       "Bash(git -C 'C:\\\\Users\\\\renov\\\\Desktop\\\\assistant_project\\\\request2python' commit -m 'docs: atualiza docs para suporte multi-browser \\(Firefox + Chrome\\) *)",
       "Bash(git -C \"C:\\\\Users\\\\renov\\\\Desktop\\\\assistant_project\\\\request2python\" push)",
       "Bash(Get-ChildItem -Recurse)",
-      "Bash(Select-Object -Property FullName)"
+      "Bash(Select-Object -Property FullName)",
+      "Bash(git filter-branch *)",
+      "Bash(git stash *)",
+      "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch -f --msg-filter 'perl -0pe \"s/\\\\nCo-Authored-By: Claude[^\\\\n]*//g\"' -- --all)",
+      "Bash(xargs -r git update-ref -d)",
+      "Bash(git reflog *)",
+      "Bash(git gc *)",
+      "Bash(git update-ref *)",
+      "Bash(git push *)",
+      "Bash(gh api *)"
     ]
   }
 }
