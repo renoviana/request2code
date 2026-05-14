@@ -9,7 +9,8 @@ A browser DevTools extension that captures network requests and converts them in
 **Firefox** — Mozilla Add-ons Store:
 [addons.mozilla.org/pt-BR/firefox/addon/request2code/](https://addons.mozilla.org/pt-BR/firefox/addon/request2code/)
 
-**Chrome** — coming soon to the Chrome Web Store. For now, load it manually (see below).
+**Chrome** — 
+[https://chromewebstore.google.com/detail/request2code/ipkmkckodchgcmchaanbfpjfcniabgek](https://chromewebstore.google.com/detail/request2code/ipkmkckodchgcmchaanbfpjfcniabgek)
 
 ## Features
 
